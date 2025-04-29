@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Image by Section</title>
+  <link rel="stylesheet" href="styles.css">  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+  <div class="section">
+    <div class="navigation">
+      <div class="navigation-item">Resume</div>
+      <a href="https://github.com/elisecarman" class="navigation-item">Github</a>
+      <a href="https://www.linkedin.com/in/elise-carman-9914b6154/" class="navigation-item">Linkedin</a>
+      <a href="https://www.linkedin.com/in/elise-carman-9914b6154/" class="navigation-item">Fashion</a>
+    </div>
+    
+    <img src="assets/images/cloud1.png" alt="Image 1" class="image image-1">
+    <img src="assets/images/cloud2.png" alt="Image 2" class="image image-2">
+    <img src="assets/images/cloud3.png" alt="Image 3" class="image image-3">
+
+    <div class="intro">
+      <!-- My name is Elise Carman. I am a software developer 
+      <br/>
+      and a little bit more. -->
+    </div>
+
+    <div class="projects-container">
+
+      <div class="project-row" style="z-index: 5">
+        <a href="https://elisecarman.github.io/Personas/">
+          <div class="project"> 
+            <div class="project-caption">
+              <div id="backgroundDiv1" >
+              <div>UI UX</div>
+              <div>PERSONAS &
+                <br/>
+                STORYBOARDING
+              </div>
+              </div>
+            </div>
+            <img src="assets/images/phone-guy.PNG" alt="Card 1" class="card-1"/>
+          </div>
+        </a>
+        <a href="https://elisecarman.github.io/AccessibleComponent/">
+          <div class="project">
+            <div class="project-caption">
+              <div id="backgroundDiv2" >
+                <div>UI UX</div>
+                <div>ACCESSIBLE COMPONENTS</div>
+              </div>
+            </div>
+            <img src="assets/images/sword-guy.PNG" alt="Card 2" class="card-2"/>
+          </div>
+        </a>
+      </div>
+      
+     
+        <div class="project-row" style="z-index: 6"> 
+        <a href="https://elisecarman.github.io/ResponsiveRedesign/">
+          <div class="project">
+              <div class="project-caption">
+                <div id="backgroundDiv3" >
+                  <div>UI UX</div>
+                  <div>AUGUSTINE AT HOME</div>
+                </div>
+              </div>
+              <img src="assets/images/pink-guy.PNG" alt="card 3" class="card-3"/>
+          </div>
+        </a>
+        <div style="max-width: 300px;"></div>
+        <a href="https://elisecarman.github.io/ResponsiveRedesign/">
+        <div class="project">
+          <div class="project-caption">
+            <div id="backgroundDiv4" >
+              <div>UNITY GAME</div>
+              <div>RESPONSIVE</div>
+              <div>REDESIGN</div>
+            </div>
+          </div>
+          <img src="assets/images/wing-guy.PNG"  alt="Card 4" class="card-4"/>
+        </div>
+        </a>
+      </div>
+
+      
+
+    </div>
+    
+  </div>
+  
+
+  </div>
+  
+  <script>
+    const dots = [];
+    const numDots = 3;
+    let cursorX = window.innerWidth / 2;
+    let cursorY = window.innerHeight / 2;
+
+    for (let i = 0; i < numDots; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      dot.style.left = `${Math.random() * window.innerWidth}px`;
+      dot.style.top = `${Math.random() * window.innerHeight}px`;
+      document.body.appendChild(dot);
+      dots.push(dot);
+    }
+
+    document.addEventListener('mousemove', (e) => {
+      cursorX = e.clientX;
+      cursorY = e.clientY;
+    });
+
+    function moveDots() {
+      dots.forEach((dot) => {
+        const dotX = parseFloat(dot.style.left);
+        const dotY = parseFloat(dot.style.top);
+        const deltaX = cursorX - dotX;
+        const deltaY = cursorY - dotY;
+
+        const distance = Math.sqrt(deltaX ** 2 + deltaY ** 2);
+
+        if (distance > 3) { 
+          dot.style.left = `${dotX + deltaX * 0.0005}px`;
+          dot.style.top = `${dotY + deltaY * 0.0005}px`;
+        }
+      });
+      requestAnimationFrame(moveDots);
+    }
+
+    moveDots();
+
+    const images = [
+      'assets/images/caption1.PNG',
+      'assets/images/caption2.PNG',
+      'assets/images/caption3.PNG',
+      'assets/images/caption4.PNG',
+    ];
+
+    const div1 = document.getElementById('backgroundDiv1');
+    const div2 = document.getElementById('backgroundDiv2');
+    const div3 = document.getElementById('backgroundDiv3');
+    const div4 = document.getElementById('backgroundDiv4');
+    const nav1 = document.getElementById('nav-item-1');
+    const nav2 = document.getElementById('nav-item-2');
+    const nav3 = document.getElementById('nav-item-3');
+    const nav4 = document.getElementById('nav-item-4');
+    const nav5 = document.getElementById('nav-item-5');
+
+
+    let currentIndex = 0;
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+      div1.style.backgroundImage = `url(${images[currentIndex]})`;
+      div2.style.backgroundImage = `url(${images[currentIndex]})`;
+      div3.style.backgroundImage = `url(${images[currentIndex]})`;
+      div4.style.backgroundImage = `url(${images[currentIndex]})`;
+      nav1.style.backgroundImage = `url(${images[currentIndex]})`;
+      nav2.style.backgroundImage = `url(${images[currentIndex]})`;
+      nav3.style.backgroundImage = `url(${images[currentIndex]})`;
+      nav4.style.backgroundImage = `url(${images[currentIndex]})`;
+      nav5.style.backgroundImage = `url(${images[currentIndex]})`;
+    }, 300);
+
+  </script>
+</body>
+</html>
