@@ -26,6 +26,12 @@
     font-style: normal;
   }
 
+  ::selection {
+    color: #ff7171;
+    /* background: rgb(197, 37, 37); */
+    /* text-shadow: #ff0000; */
+  }
+
   :root{
     --color : #ffffff;
   }
@@ -58,6 +64,7 @@
   }
 
   .navigation{
+    max-width: 1500px;
     top: 0;
     height: fit-content;
     display: flex;
@@ -140,6 +147,7 @@
     position: absolute;
     font-size: 3rem;
     top: 30%;
+    padding: 1rem;
   }
 
   .image {
@@ -254,7 +262,8 @@
   }
 
   .project-caption h2{
-    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
     margin-left: 2rem;
   }
 
@@ -339,4 +348,9 @@
     pointer-events: none;
   }
 
-  
+  @media (max-width: 768px) {
+
+    .navigation{
+      font-size: 1rem;
+    }
+  }
