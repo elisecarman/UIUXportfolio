@@ -397,20 +397,58 @@
   @media (max-width: 1000px) {
 
     .navigation{
-      font-size: 1rem;
-    }
-    .intro h2{
       font-size: 1.5rem;
     }
-  
-    .intro h4{
-      font-size: 1rem;
-    }
+    
 
-    .typewriter-container {
-      font-size: 1rem;
-    }
+    
 
   }
 
+
+  @media (max-width: 750px) {
+
+    .intro h2{
+      font-size: 1.5rem;
+      opacity: 1;
+
+    }
+  
+    .intro h4{
+      font-size: 1.2rem;
+      opacity: 1;
+
+    }
+
+    .typewriter-container {
+      font-size: 1.2rem;
+      opacity: 1;
+
+    }
+
+    .project:hover #backgroundDiv1 {
+      visibility: hidden;
+    }
+  
+    .project:hover #backgroundDiv2 {
+      visibility: hidden;
+      opacity: 1;
+    }
+  
+    .project:hover #backgroundDiv3 {
+      visibility: hidden;
+      opacity: 1;
+    }
+  
+    .project:hover #backgroundDiv4 {
+      visibility: hidden;
+      opacity: 1;
+    }
+
+    .intro{
+      background-color: rgba(36, 36, 138, 0.5);
+      border-radius: 10px;
+    }
+  
+  }
 
